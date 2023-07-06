@@ -3,18 +3,18 @@ services:
   testtask:
     build: ./
     image: testtask
-    container_name: task
+    container_name: testtask
     ports:
       - "8000:8080"
     depends_on:
-      - stats-db
+      - test-db
     environment:
       - DB_NAME=testtask
       - DB_HOST=testtask-db
       - DB_PORT=5432
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=iamroot
-      -
+
   test-db:
     image: postgres:14-alpine
     container_name: testtask-db
